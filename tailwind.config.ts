@@ -54,6 +54,9 @@ export default {
   content: ["./src/app/**/*.{jsx,tsx}"],
   theme: {
     colors: tailwindColors,
+    container: {
+      center: true,
+    },
     extend: {},
   },
   darkMode: "class",
