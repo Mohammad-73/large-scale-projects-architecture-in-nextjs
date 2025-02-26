@@ -11,7 +11,7 @@ const figtree = Figtree({
   variable: "--font-figtree",
 });
 
-const yekanback = localFont({
+const yekanbakh = localFont({
   src: [
     {
       path: "../../public/fonts/yekanbakh/YekanBakhFaNum-Thin.woff2",
@@ -55,11 +55,11 @@ export default function RootLayout({
   return (
     <html
       dir="rtl"
-      className={`dark ${figtree.variable} ${yekanback.variable}`}
+      className={`${yekanbakh.variable} ${figtree.variable} dark`}
     >
       <body className="min-h-screen grid grid-rows-[80px_1fr_auto] dark:bg-base-100 dark:text-base-content">
         <Header />
-        <div className="flex-1 flex">{children}</div>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>

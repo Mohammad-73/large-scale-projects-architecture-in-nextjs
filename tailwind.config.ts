@@ -57,7 +57,11 @@ export default {
     container: {
       center: true,
     },
-    extend: {},
+    extend: {
+      backgroundImage: {
+        "hero-pattern": "url('/images/tile.svg')",
+      },
+    },
   },
   darkMode: "class",
   plugins: [],
