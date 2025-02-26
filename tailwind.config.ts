@@ -56,5 +56,6 @@ export default {
     colors: tailwindColors,
     extend: {},
   },
+  darkMode: "class",
   plugins: [],
 } satisfies Config;
