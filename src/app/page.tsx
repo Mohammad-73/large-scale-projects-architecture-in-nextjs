@@ -19,7 +19,7 @@ export default function Home() {
               هواتو داریم.
             </p>
             <div className="mt-5 flex gap-4">
-              <Button variant="primary" size="large">
+              <Button variant="accent" size="large">
                 دوره های ری اکت و نکست
               </Button>
               <Button variant="neutral" size="large">

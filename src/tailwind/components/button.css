@@ -11,18 +11,18 @@
 
   /* Brand colors */
   &-primary {
-    @apply bg-primary border-primary text-primary-content outline-primary;
+    @apply dark:bg-primary dark:border-primary dark:text-primary-content dark:outline-primary;
     @media (hover: hover) {
       &:hover {
-        @apply border-primary-focus bg-primary-focus;
+        @apply dark:border-primary-focus dark:bg-primary-focus;
       }
     }
   }
   &-secondary {
-    @apply bg-secondary border-secondary text-secondary-content outline-secondary;
+    @apply dark:bg-secondary dark:border-secondary dark:text-secondary-content dark:outline-secondary;
     @media (hover: hover) {
       &:hover {
-        @apply border-secondary-focus bg-secondary-focus;
+        @apply dark:border-secondary-focus dark:bg-secondary-focus;
       }
     }
   }
