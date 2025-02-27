@@ -8,7 +8,7 @@ const generateDarkenColorFrom = (input: string, percentage = 0.07): string =>
 
 const generateForegroundColorFrom = (input: string, percentage = 0.8): string =>
   colord(input)
-    .mix(colord(input).isDark() ? "whtie" : "black", percentage)
+    .mix(colord(input).isDark() ? "white" : "black", percentage)
     .toHex();
 
 type ColorObject = {
