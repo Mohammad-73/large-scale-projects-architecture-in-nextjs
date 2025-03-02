@@ -1,5 +1,4 @@
-import Image from "next/image";
-import { Button } from "./_components/button";
+import { CourseCardList } from "./(courses)/_components/course-card-list";
 import { HomeHeroSection } from "./_components/home-hero-section/home-hero-section";
 import { CourseSummary } from "@/types/course-summary.interface";
 
@@ -20,9 +19,13 @@ export default async function Home() {
   return (
     <>
       <HomeHeroSection />
-      {newestCourses.map((p) => (
-        <p key={p.title}>{p.title}</p>
-      ))}
+      <section className="container pt-20">
+        <div className="text-center xl:text-right">
+          <h2 className="text-2xl font-extrabold">تازه ترین دوره های آموزشی</h2>
+          <p> برای به‌روز موندن، یاد گرفتن نکته‌های تازه ضروری‌ه!</p>
+        </div>
+        <CourseCardList courses={newestCourses} />
+      </section>
     </>
   );
 }
