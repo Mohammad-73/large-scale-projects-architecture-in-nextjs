@@ -7,7 +7,7 @@ import { Button } from "./_components/button";
 import { IconArrowLeftFill } from "./_components/icons/icons";
 import { BlogPostSummary } from "@/types/blog-post-summary.interface";
 import { BlogPostCardList } from "./(blog)/_components/blog-post-card-list";
-import { API_URL } from "@/configs/gloabal";
+import { API_URL } from "@/configs/global";
 
 async function getNewestCourses(count: number): Promise<CourseSummary[]> {
   const res = await fetch(`${API_URL}/courses/newest/${count}`, {
