@@ -9,6 +9,7 @@ import { BlogPostSummary } from "@/types/blog-post-summary.interface";
 import { BlogPostCardList } from "./(blog)/_components/blog-post-card-list";
 import { API_URL } from "@/configs/global";
 import { Suspense } from "react";
+import { CardPlaceholder } from "./_components/placeholders";
 
 async function getNewestPosts(count: number): Promise<BlogPostSummary[]> {
   const res = await fetch(`${API_URL}/blog/newest/${count}`, {
@@ -39,7 +40,7 @@ export default async function Home() {
           <h2 className="text-2xl font-extrabold">تازه ترین دوره های آموزشی</h2>
           <p> برای به‌روز موندن، یاد گرفتن نکته‌های تازه ضروری‌ه!</p>
         </div>
-        <Suspense fallback={<div>در حال دریافت اطلاعات...</div>}>
+        <Suspense fallback={<CardPlaceholder count={4} className="mt-5" />}>
           <CourseCardList courses={[]} />
         </Suspense>
       </section>
