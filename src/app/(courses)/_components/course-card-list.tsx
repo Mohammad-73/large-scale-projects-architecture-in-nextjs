@@ -7,7 +7,7 @@ type CourseCardListProps = {
 };
 
 async function getNewestCourses(count: number): Promise<CourseSummary[]> {
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  // await new Promise((resolve) => setTimeout(resolve, 3000));
   const res = await fetch(`${API_URL}/courses/newest/${count}`, {
     // cache:"no-store", // For dynamic rendering we can set 'no-store' value for cache or 0 value for revalidate or segment config option on top of page.
     next: {
