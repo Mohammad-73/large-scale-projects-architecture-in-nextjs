@@ -22,8 +22,8 @@ export const Rating: React.FC<RatingProps> = ({
           key={`star-${index}`}
           width={sizeClasses[size]}
           height={sizeClasses[size]}
-          fill={rate <= index ? `var(--color-${variant})` : ""}
-          color={rate <= index ? `var(--color-${variant})` : "currentColor"}
+          fill={rate >= index ? `var(--color-${variant})` : ""}
+          color={rate >= index ? `var(--color-${variant})` : "currentColor"}
         />
       ))}
     </div>
