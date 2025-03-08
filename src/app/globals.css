@@ -2,7 +2,7 @@
 @import "tailwindcss/components.css";
 @import "tailwindcss/utilities.css";
 
-@import "../tailwind/components/components.css";
+@import "../tailwind/components.css";
 
 @layer base {
   :root {
