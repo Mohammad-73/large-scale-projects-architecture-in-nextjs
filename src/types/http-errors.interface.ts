@@ -1,6 +1,6 @@
 interface Problem {
   title: string;
-  statusCode: number;
+  status: number;
   details?: string;
   errors?: Record<string, string[]>;
 }
