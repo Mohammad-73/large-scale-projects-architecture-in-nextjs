@@ -6,20 +6,14 @@ import {
   UnhandledError,
   UnauthorizedError,
   ValidationError,
+  ApiError,
 } from "@/types/http-errors.interface";
 import axios, {
   AxiosRequestConfig,
   AxiosRequestHeaders,
   AxiosResponse,
 } from "axios";
-
-type ApiError =
-  | BadRequestError
-  | NetworkError
-  | NotFoundError
-  | UnhandledError
-  | UnauthorizedError
-  | ValidationError;
+import { errorHandler, networkErrorStrategy } from "./http-error-strategies";
 
 const httpService = axios.create({
   baseURL: API_URL,
@@ -38,43 +32,10 @@ httpService.interceptors.response.use(
       if (statusCode >= 400) {
         const errorData: ApiError = error.response.data;
 
-        if (statusCode === 400 && !errorData.errors) {
-          throw {
-            ...errorData,
-          } as BadRequestError;
-        }
-
-        if (statusCode === 400 && errorData.errors) {
-          throw {
-            ...errorData,
-          } as ValidationError;
-        }
-
-        if (statusCode === 404) {
-          throw {
-            ...errorData,
-            details: "سرویس مورد نظر یافت نشد",
-          } as NotFoundError;
-        }
-
-        if (statusCode === 403) {
-          throw {
-            ...errorData,
-            details: "دسترسی به سرویس مورد نظر امکان پذیر نمی باشد",
-          } as UnauthorizedError;
-        }
-
-        if (statusCode === 500) {
-          throw {
-            ...errorData,
-            details: "خطای سرور",
-          } as UnhandledError;
-        }
+        errorHandler[statusCode](errorData);
       }
     } else {
-      throw {
-        details: "خطای شبکه",
-      } as NetworkError;
+      networkErrorStrategy();
     }
   }
 );
