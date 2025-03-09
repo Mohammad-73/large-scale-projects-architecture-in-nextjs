@@ -1,6 +1,6 @@
 "use client";
 
-import { createData } from "@/core/http-service";
+import { createData } from "@/core/http-service/http-service";
 import { useEffect } from "react";
 
 const CourseComments = () => {
