@@ -70,11 +70,11 @@ httpService.interceptors.response.use(
             details: "خطای سرور",
           } as UnhandledError;
         }
-      } else {
-        throw {
-          details: "خطای شبکه",
-        } as NetworkError;
       }
+    } else {
+      throw {
+        details: "خطای شبکه",
+      } as NetworkError;
     }
   }
 );
