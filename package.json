@@ -19,6 +19,7 @@
     "classnames": "^2.5.1",
     "colord": "^2.9.3",
     "next": "^15.2.0",
+    "nextjs-toploader": "^3.7.15",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-intersection-observer": "^9.16.0"
