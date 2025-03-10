@@ -6,6 +6,8 @@ import { useParams } from "next/navigation";
 import { Fragment, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { useCourseComments } from "../../_api/get-comments";
+import { Button } from "@/app/_components/button";
+import { IconRefresh } from "@/app/_components/icons/icons";
 
 const CourseComments = () => {
   const { ref, inView } = useInView({});
@@ -14,6 +16,7 @@ const CourseComments = () => {
     data: comments,
     error,
     isFetchingNextPage,
+    isFetching,
     fetchNextPage,
     hasNextPage,
     refetch,
@@ -30,6 +33,26 @@ const CourseComments = () => {
     }
   }, [inView, fetchNextPage, hasNextPage]);
 
+  if (error) {
+    return (
+      <>
+        <p>خطا در برقراری ارتباط با سرور</p>
+        <div className="text-center mt-3">
+          <Button
+            variant="neutral"
+            className="font-semibold"
+            isOutline={true}
+            shape="wide"
+            onClick={() => refetch()}
+          >
+            <IconRefresh />
+            تلاش مجدد
+          </Button>
+        </div>
+      </>
+    );
+  }
+
   return (
     <>
       {comments?.pages.map((currentPage) => (
@@ -44,12 +67,11 @@ const CourseComments = () => {
         </Fragment>
       ))}
 
-      {(isFetchingNextPage || hasNextPage) && (
+      {(isFetching || hasNextPage) && (
         <div ref={ref}>
           <TextPlaceholder />
         </div>
       )}
-      {/* {isLoading && <TextPlaceholder />} */}
     </>
   );
 };
