@@ -1,9 +1,6 @@
 import Link from "next/link";
+import SignInForm from "./_components/signin-form";
 
 export default async function SignInPage() {
-  return (
-    <div className="">
-      <Link href="/verify">Go To Verification Page</Link>
-    </div>
-  );
+  return <SignInForm />;
 }
