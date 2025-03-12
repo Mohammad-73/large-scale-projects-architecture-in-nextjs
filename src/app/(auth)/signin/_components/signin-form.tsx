@@ -37,6 +37,7 @@ const SignInForm = () => {
     showNotification({
       type: "error",
       message: "error",
+      duration: 5000,
     });
   }, []);
 
