@@ -1,4 +1,3 @@
-import { Notifications } from "@/app/_components/notification/notifications";
 import { Notification } from "@/types/notification.interface";
 import { generateID } from "@/utils/string";
 import { create } from "zustand";
