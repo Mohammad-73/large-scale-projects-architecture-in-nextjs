@@ -23,27 +23,27 @@ export const validationErrorStrategy: ApiErrorHandler = (errorData) => {
 export const notFoundErrorStrategy: ApiErrorHandler = (errorData) => {
   throw {
     ...errorData,
-    details: "سرویس مورد نظر یافت نشد",
+    detail: "سرویس مورد نظر یافت نشد",
   } as NotFoundError;
 };
 
 export const unauthorizedErrorStrategy: ApiErrorHandler = (errorData) => {
   throw {
     ...errorData,
-    details: "دسترسی به سرویس مورد نظر امکان پذیر نمی باشد",
+    detail: "دسترسی به سرویس مورد نظر امکان پذیر نمی باشد",
   } as UnauthorizedError;
 };
 
 export const unhandledExceptionStrategy: ApiErrorHandler = (errorData) => {
   throw {
     ...errorData,
-    details: "خطای سرور",
+    detail: "خطای سرور",
   } as UnhandledError;
 };
 
 export const networkErrorStrategy = () => {
   throw {
-    details: "خطای شبکه",
+    detail: "خطای شبکه",
   } as NetworkError;
 };
 

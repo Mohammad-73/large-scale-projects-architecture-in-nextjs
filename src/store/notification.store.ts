@@ -1,3 +1,4 @@
+import { Notifications } from "@/app/_components/notification/notifications";
 import { Notification } from "@/types/notification.interface";
 import { generateID } from "@/utils/string";
 import { create } from "zustand";
@@ -29,3 +30,9 @@ export const useNotificationStore = create<NotificationState>()(
     },
   }))
 );
+
+export const showNotification = (notifications: Omit<Notification, "id">[]) => {
+  notifications.forEach((n) =>
+    useNotificationStore.getState().showNotification(n)
+  );
+};
