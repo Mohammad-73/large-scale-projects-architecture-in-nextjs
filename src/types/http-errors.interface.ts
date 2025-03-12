@@ -1,7 +1,7 @@
 interface Problem {
   title: string;
   status: number;
-  details?: string;
+  detail?: string;
   errors?: Record<string, string[]>;
 }
 
