@@ -7,11 +7,11 @@ export const queryClient = new QueryClient({
     },
   }),
 
-  //   mutationCache: new MutationCache({
-  //     onError: (error) => {
-  //       // todo (show notification)
-  //     },
-  //   }),
+  mutationCache: new MutationCache({
+    onError: (error) => {
+      // todo (show notification)
+    },
+  }),
 
   defaultOptions: {
     queries: {
