@@ -1,7 +1,7 @@
 import { ComponentBase } from "../types/component-base.type";
 
 export type AuthCodeProps = Omit<ComponentBase, "size"> & {
-  authFocus?: boolean;
+  autoFocus?: boolean;
   length?: number;
   onChange: (value: string) => void;
 };
