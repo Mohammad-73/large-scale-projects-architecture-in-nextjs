@@ -11,3 +11,8 @@ export type AuthInputProps = {
   max?: string;
   pattern: string;
 };
+
+export type AuthCodeRef = {
+  focus: () => void;
+  clear: () => void;
+};
