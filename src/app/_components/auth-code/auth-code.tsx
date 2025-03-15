@@ -109,6 +109,7 @@ export const AuthCode = forwardRef<AuthCodeRef, AuthCodeProps>(
     for (let i = 0; i < length; i++) {
       inputs.push(
         <input
+          key={`input-${i}`}
           type="text"
           maxLength={1}
           className={classes}
