@@ -74,6 +74,7 @@ export const Timer = forwardRef<TimerRef, TimerProps>(
       if (value !== null) {
         return (
           <TimerProgress
+            key={`timer-progress-${value}`}
             value={value}
             maxValue={maxValue}
             datePart={datePart}
