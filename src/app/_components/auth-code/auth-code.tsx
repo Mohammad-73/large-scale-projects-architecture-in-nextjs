@@ -9,8 +9,7 @@ import React, {
 import { AuthCodeProps, AuthCodeRef, AuthInputProps } from "./auth-code.types";
 import classNames from "classnames";
 
-/* eslint-disable react/display-name */
-const AuthCode = forwardRef<AuthCodeRef, AuthCodeProps>(
+export const AuthCode = forwardRef<AuthCodeRef, AuthCodeProps>(
   (
     {
       variant = "ghost",
@@ -132,4 +131,4 @@ const AuthCode = forwardRef<AuthCodeRef, AuthCodeProps>(
   }
 );
 
-export default AuthCode;
+AuthCode.displayName = "AuthCode";

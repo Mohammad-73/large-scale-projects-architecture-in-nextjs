@@ -1,10 +1,17 @@
 "use client";
 
-import AuthCode from "@/app/_components/auth-code/auth-code";
+import { AuthCode } from "@/app/_components/auth-code";
 import { AuthCodeRef } from "@/app/_components/auth-code/auth-code.types";
 import { Button } from "@/app/_components/button/button";
+import { Timer } from "@/app/_components/timer";
 import Link from "next/link";
 import { useRef } from "react";
+
+const getTwoMinutesFromNow = () => {
+  const time = new Date();
+  time.setSeconds(time.getSeconds() + 120);
+  return time;
+};
 
 const VerificationForm = () => {
   const authCodeRef = useRef<AuthCodeRef>(null);
@@ -20,7 +27,7 @@ const VerificationForm = () => {
             console.log(value);
           }}
         />
-        Timer
+        <Timer expiryTimestamp={getTwoMinutesFromNow()} />
         <Button isLink={true} onClick={authCodeRef.current?.clear}>
           ارسال مجدد کد تایید
         </Button>
