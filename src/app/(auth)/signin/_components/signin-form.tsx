@@ -7,6 +7,8 @@ import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { useSignIn } from "../_api/signin";
 import { SignIn } from "../_types/signin.types";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { signInSchema } from "../_types/signin.schema";
 
 const SignInForm = () => {
   const {
@@ -14,7 +16,9 @@ const SignInForm = () => {
     handleSubmit,
     formState: { errors },
     getValues,
-  } = useForm<SignIn>();
+  } = useForm<SignIn>({
+    resolver: zodResolver(signInSchema),
+  });
 
   const router = useRouter();
 
@@ -48,17 +52,6 @@ const SignInForm = () => {
         <TextInput<SignIn>
           register={register}
           name={"mobile"}
-          rules={{
-            required: "شماره موبایل الزامی است",
-            maxLength: {
-              value: 11,
-              message: "شماره موبایل باید 11 رقم باشد",
-            },
-            minLength: {
-              value: 11,
-              message: "شماره موبایل باید 11 رقم باشد",
-            },
-          }}
           errors={errors}
         />
 
