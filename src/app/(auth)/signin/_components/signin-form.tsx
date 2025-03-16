@@ -10,6 +10,9 @@ import { SignIn } from "../_types/signin.types";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { signInSchema } from "../_types/signin.schema";
 import { signInAction } from "@/actions/auth";
+import { useFormState } from "react-dom";
+import { useEffect } from "react";
+import { Alert } from "@/app/_components/alert";
 
 const SignInForm = () => {
   const {
@@ -21,12 +24,25 @@ const SignInForm = () => {
     resolver: zodResolver(signInSchema),
   });
 
+  const [formState, action] = useFormState(signInAction, { message: "" });
+
   const router = useRouter();
 
   const showNotification = useNotificationStore(
     (state) => state.showNotification
   );
 
+  useEffect(() => {
+    if (formState.message) {
+      showNotification({
+        message: formState.message,
+        type: "error",
+        duration: 5000,
+      });
+    }
+  }, [formState, showNotification]);
+
+  // // WITHOUT SERVER ACTION
   // const signIn = useSignIn({
   //   onSuccess: () => {
   //     router.push(`/verify?mobile${getValues("mobile")}`);
@@ -39,7 +55,11 @@ const SignInForm = () => {
   // });
 
   const onSubmit = (data: SignIn) => {
-    signInAction(data.mobile);
+    const formData = new FormData();
+    formData.append("mobile", data.mobile);
+    action(formData);
+
+    // // WITHOUT SERVER ACTION
     // signIn.submit(data);
   };
 
@@ -60,6 +80,9 @@ const SignInForm = () => {
         <Button type="submit" variant="primary">
           تایید و دریافت کد
         </Button>
+        {/* {formState.message && (
+          <Alert variant="error">{formState.message}</Alert>
+        )} */}
       </form>
     </>
   );
