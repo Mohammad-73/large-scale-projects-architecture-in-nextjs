@@ -12,7 +12,7 @@ import { signInSchema } from "../_types/signin.schema";
 import { signInAction } from "@/actions/auth";
 import { useFormState } from "react-dom";
 import { useEffect, useTransition } from "react";
-import { Alert } from "@/app/_components/alert";
+// import { Alert } from "@/app/_components/alert";
 
 const SignInForm = () => {
   const {
@@ -41,7 +41,7 @@ const SignInForm = () => {
         duration: 5000,
       });
     } else if (formState && formState.isSuccess) {
-      router.push(`/verify?mobile${getValues("mobile")}`);
+      router.push(`/verify?mobile=${getValues("mobile")}`);
       showNotification({
         message: "کد تایید به شماره شما ارسال شد",
         type: "info",

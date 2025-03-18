@@ -35,6 +35,8 @@ export const {
               code: credentials.code as string,
             }
           );
+          console.log(user);
+
           // AUTH.JS EXPECTS THE USER OBJECT TO BE RETURNED
           return {
             accessToken: user.token,
