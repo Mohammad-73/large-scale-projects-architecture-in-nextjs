@@ -6,14 +6,14 @@ import { Button } from "@/app/_components/button/button";
 import { Timer } from "@/app/_components/timer";
 import { TimerRef } from "@/app/_components/timer/timer.types";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useTransition } from "react";
 // import { useSendAuthCode } from "../_api/send-auth-code";
 import { useNotificationStore } from "@/store/notification.store";
 import { useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { VerifyUserModel } from "../_types/verify-user.types";
 import { useFormState } from "react-dom";
-import { sendAuthCode } from "@/actions/auth";
+import { sendAuthCode, verify } from "@/actions/auth";
 
 const getTwoMinutesFromNow = () => {
   const time = new Date();
@@ -41,6 +41,9 @@ const VerificationForm = ({ mobile }: { mobile: string }) => {
     sendAuthCode,
     null
   );
+  const [verifyState, verifyAction] = useFormState(verify, undefined);
+
+  const [verifyPendingState, startTransition] = useTransition();
 
   const params = useSearchParams();
   const username = params.get("mobile")!;
@@ -78,7 +81,13 @@ const VerificationForm = ({ mobile }: { mobile: string }) => {
 
   const onSubmit = (data: VerifyUserModel) => {
     data.username = username;
-    console.log(data);
+    const formData = new FormData();
+    formData.append("username", data.username);
+    formData.append("code", data.code);
+
+    startTransition(async () => {
+      verifyAction(formData);
+    });
   };
 
   register("code", {
@@ -126,7 +135,12 @@ const VerificationForm = ({ mobile }: { mobile: string }) => {
         >
           ارسال مجدد کد تایید
         </Button>
-        <Button type="submit" variant="primary" isDisabled={!isValid}>
+        <Button
+          type="submit"
+          variant="primary"
+          isLoading={verifyPendingState}
+          isDisabled={!isValid}
+        >
           تایید و ادامه
         </Button>
         <div className="flex items-start gap-1 justify-center mt-auto">

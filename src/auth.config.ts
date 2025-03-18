@@ -6,4 +6,5 @@ export const authConfig = {
   },
   callbacks: {},
   providers: [],
+  secret: "asdfasdfasdfasfd",
 } satisfies NextAuthConfig;
