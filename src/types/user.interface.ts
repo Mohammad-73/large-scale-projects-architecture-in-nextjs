@@ -9,3 +9,5 @@ export interface UserToken {
   exp: number;
   accessToken: string;
 }
+
+export interface UserSession extends UserToken {}
