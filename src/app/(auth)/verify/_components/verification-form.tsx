@@ -6,14 +6,20 @@ import { Button } from "@/app/_components/button/button";
 import { Timer } from "@/app/_components/timer";
 import { TimerRef } from "@/app/_components/timer/timer.types";
 import Link from "next/link";
-import { useEffect, useRef, useState, useTransition } from "react";
+import {
+  useActionState,
+  useEffect,
+  useRef,
+  useState,
+  useTransition,
+} from "react";
 // import { useSendAuthCode } from "../_api/send-auth-code";
+import { sendAuthCode, verify } from "@/actions/auth";
 import { useNotificationStore } from "@/store/notification.store";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { VerifyUserModel } from "../_types/verify-user.types";
-import { useFormState } from "react-dom";
-import { sendAuthCode, verify } from "@/actions/auth";
+import { getSession } from "next-auth/react";
 
 const getTwoMinutesFromNow = () => {
   const time = new Date();
@@ -37,16 +43,32 @@ const VerificationForm = ({ mobile }: { mobile: string }) => {
     (state) => state.showNotification
   );
 
-  const [sendAuthCodeState, sendAuthCodeAction] = useFormState(
+  const [sendAuthCodeState, sendAuthCodeAction] = useActionState(
     sendAuthCode,
     null
   );
-  const [verifyState, verifyAction] = useFormState(verify, undefined);
+  const [verifyState, verifyAction] = useActionState(verify, undefined);
 
   const [verifyPendingState, startTransition] = useTransition();
 
+  const router = useRouter();
+
   const params = useSearchParams();
   const username = params.get("mobile")!;
+
+  useEffect(() => {
+    if (verifyState && !verifyState.isSuccess && verifyState?.error?.detail) {
+      showNotification({
+        message: verifyState.error.detail,
+        type: "error",
+        duration: 5000,
+      });
+    } else if (verifyState?.isSuccess) {
+      const fetchSession = async () => await getSession();
+      fetchSession();
+      router.push("/student/courses");
+    }
+  });
 
   useEffect(() => {
     if (
@@ -81,12 +103,12 @@ const VerificationForm = ({ mobile }: { mobile: string }) => {
 
   const onSubmit = (data: VerifyUserModel) => {
     data.username = username;
-    const formData = new FormData();
-    formData.append("username", data.username);
-    formData.append("code", data.code);
 
     startTransition(async () => {
-      verifyAction(formData);
+      verifyAction({
+        username: data.username,
+        code: data.code,
+      });
     });
   };
 
