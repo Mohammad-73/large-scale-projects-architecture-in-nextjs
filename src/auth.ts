@@ -1,4 +1,4 @@
-import NextAuth from "next-auth";
+import NextAuth, { CredentialsSignin } from "next-auth";
 import { authConfig } from "./auth.config";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { createData } from "./core/http-service/http-service";
@@ -7,6 +7,7 @@ import { User, UserSession, UserToken } from "./types/user.interface";
 import { API_URL } from "./configs/global";
 import { jwtDecode } from "jwt-decode";
 import { JWT } from "next-auth/jwt";
+import { Problem } from "./types/http-errors.interface";
 
 declare module "next-auth" {
   interface User {
@@ -20,6 +21,14 @@ declare module "next-auth" {
 declare module "next-auth/jwt" {
   interface JWT {
     user: UserToken;
+  }
+}
+
+export class AuthorizeError extends CredentialsSignin {
+  problem: Problem;
+  constructor(err: Problem) {
+    super();
+    this.problem = err;
   }
 }
 
@@ -46,14 +55,12 @@ export const {
               code: credentials.code as string,
             }
           );
-          console.log(user);
-
           // AUTH.JS EXPECTS THE USER OBJECT TO BE RETURNED
           return {
             accessToken: user.token,
           };
         } catch (error: unknown) {
-          throw new Error("");
+          throw new AuthorizeError(error as Problem);
         }
       },
     }),
