@@ -71,5 +71,12 @@ export async function verify(
 }
 
 export async function logout() {
-  await signOut();
+  try {
+    await signOut({ redirect: false });
+    return {
+      isSuccess: true,
+    } satisfies OperationResult<void>;
+  } catch (error) {
+    throw new Error("");
+  }
 }
