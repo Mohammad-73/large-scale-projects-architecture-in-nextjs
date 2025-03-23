@@ -6,12 +6,11 @@ import { useNotificationStore } from "@/store/notification.store";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 // import { useSignIn } from "../_api/signin";
-import { SignIn } from "../_types/signin.types";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { signInSchema } from "../_types/signin.schema";
 import { signInAction } from "@/actions/auth";
-import { useFormState } from "react-dom";
-import { useEffect, useTransition } from "react";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useActionState, useEffect, useTransition } from "react";
+import { signInSchema } from "../_types/signin.schema";
+import { SignIn } from "../_types/signin.types";
 // import { Alert } from "@/app/_components/alert";
 
 const SignInForm = () => {
@@ -24,7 +23,7 @@ const SignInForm = () => {
     resolver: zodResolver(signInSchema),
   });
 
-  const [formState, action] = useFormState(signInAction, null);
+  const [formState, action] = useActionState(signInAction, null);
   const [isPending, startTransition] = useTransition();
 
   const router = useRouter();

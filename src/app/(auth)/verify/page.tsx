@@ -5,5 +5,8 @@ export default async function VerifyPage({
 }: {
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  return <VerificationForm mobile={searchParams["mobile"] as string} />;
+  const mobile = (await searchParams["mobile"]) as string;
+
+  return <VerificationForm mobile={mobile} />;
+  // return <VerificationForm mobile={searchParams["mobile"] as string} />;
 }
