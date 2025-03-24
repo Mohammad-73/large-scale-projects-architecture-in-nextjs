@@ -1,5 +1,4 @@
 import React from "react";
-import { CourseSummary } from "@/types/course-summary.interface";
 import { BlogPostCard } from "./blog-post-card";
 import { BlogPostSummary } from "@/types/blog-post-summary.interface";
 
