@@ -96,6 +96,20 @@
   }
 }
 
+@layer utilities {
+  .container {
+    margin: auto;
+  }
+
+  .bg-hero-pattern {
+    background-image: url(/images/tile.svg);
+  }
+
+  .gradient {
+    @apply bg-gradient-to-r from-gradient-first to-gradient-second text-transparent bg-clip-text;
+  }
+}
+
 /* @import "tailwindcss/base.css";
 @import "tailwindcss/components.css";
 
