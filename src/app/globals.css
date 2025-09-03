@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 /* This colors are reference of out business colors */
 :root {
   --current: currentColor;
@@ -36,6 +38,15 @@
   --clb-c-success-content: color-mix(in oklch, var(--clb-c-success), black 80%);
   --clb-c-warning-content: color-mix(in oklch, var(--clb-c-warning), black 80%);
   --clb-c-error-content: color-mix(in oklch, var(--clb-c-error), black 80%);
+
+  --clb-c-base-25: oklch(0.36 0.02 254.1 / 1);
+  --clb-c-base-50: oklch(0.31 0.02 254.14 / 1);
+  --clb-c-base-75: oklch(0.27 0.02 248.44 / 1);
+  --clb-c-base-100: oklch(0.25 0.02 252.42 / 1);
+  --clb-c-base-200: oklch(0.23 0.01 253.1 / 1);
+  --clb-c-base-300: oklch(0.21 0.01 254.09 / 1);
+
+  --clb-c-bae-content: oklch(0.75 0.02 264.44 / 1);
 }
 
 @theme {
@@ -65,6 +76,14 @@
   --color-error-content: var(--clb-c-error-content);
   --color-gradient-first: var(--clb-c-gradient-first);
   --color-gradient-second: var(--clb-c-gradient-second);
+
+  --color-base-25: var(--clb-c-base-25);
+  --color-base-50: var(--clb-c-base-50);
+  --color-base-75: var(--clb-c-base-75);
+  --color-base-100: var(--clb-c-base-100);
+  --color-base-200: var(--clb-c-base-200);
+  --color-base-300: var(--clb-c-base-300);
+  --color-base-content: var(--clb-c-base-content);
 }
 
 @layer base {
