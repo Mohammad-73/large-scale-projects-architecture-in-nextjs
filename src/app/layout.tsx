@@ -48,7 +48,7 @@ const yekanbakh = localFont({
       style: "normal",
     },
   ],
-  variable: "--font-yekanback",
+  variable: "--font-yekanbakh",
 });
 
 export default function RootLayout({
