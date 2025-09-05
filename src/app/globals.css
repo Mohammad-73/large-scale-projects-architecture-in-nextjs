@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
+@import "../tailwind/components.css";
+
+@custom-variant dark
+  (&: where(.dark, .dark *));
 
 /* This colors are reference of out business colors */
 :root {
