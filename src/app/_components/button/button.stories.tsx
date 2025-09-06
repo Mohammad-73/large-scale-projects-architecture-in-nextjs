@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 import { Button } from "./button";
 
-import results from "../../../../.jest-test-results.json";
+// import results from "../../../../.jest-test-results.json";
 
 import { withTests } from "@storybook/addon-jest";
 
@@ -20,10 +20,10 @@ export default meta;
 
 type Story = StoryObj<typeof Button>;
 
-export const Tests: Story = {
-  render: (args) => <Button {...args}>Click here</Button>,
-};
-Tests.decorators = [withTests({ results })];
+// export const Tests: Story = {
+//   render: (args) => <Button {...args}>Click here</Button>,
+// };
+// Tests.decorators = [withTests({ results })];
 
 export const BrandColors: Story = {
   render: () => (
