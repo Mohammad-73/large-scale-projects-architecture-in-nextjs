@@ -2,14 +2,14 @@
 
 @import "../tailwind/components.css";
 
-@custom-variant dark
-  (&: where(.dark, .dark *));
+@custom-variant dark (&:where(.dark, .dark *));
 
 /* This colors are reference of out business colors */
 :root {
   --current: currentColor;
   --clb-c-transparent: transparent;
   --clb-c-white: oklch(0.98 0 0 / 1);
+  --clb-c-black: oklch(0 0 0 / 1);
   --clb-c-primary: oklch(0.59 0.19 254.77 / 1);
   --clb-c-secondary: oklch(0.57 0.2 283.08 / 1);
   --clb-c-accent: oklch(0.69 0.12 185.39 / 1);
@@ -49,7 +49,7 @@
   --clb-c-base-200: oklch(0.23 0.01 253.1 / 1);
   --clb-c-base-300: oklch(0.21 0.01 254.09 / 1);
 
-  --clb-c-bae-content: oklch(0.75 0.02 264.44 / 1);
+  --clb-c-base-content: oklch(0.75 0.02 264.44 / 1);
 }
 
 @theme {
@@ -57,18 +57,19 @@
   --color-current: var(--current);
   --color-transparent: var(--clb-c-transparent);
   --color-white: var(--clb-c-white);
+  --color-black: var(--clb-c-black);
   --color-primary: var(--clb-c-primary);
   --color-primary-content: var(--clb-c-primary-content);
   --color-primary-focus: var(--clb-c-primary-focus);
   --color-secondary: var(--clb-c-secondary);
   --color-secondary-content: var(--clb-c-secondary-content);
-  --color-secondary-focus: var(var(--clb-c-secondary-focus));
+  --color-secondary-focus: var(--clb-c-secondary-focus);
   --color-accent: var(--clb-c-accent);
   --color-accent-content: var(--clb-c-accent-content);
-  --color-accent-focus: var(var(--clb-c-accent-focus));
+  --color-accent-focus: var(--clb-c-accent-focus);
   --color-neutral: var(--clb-c-neutral);
   --color-neutral-content: var(--clb-c-neutral-content);
-  --color-neutral-focus: var(var(--clb-c-neutral-focus));
+  --color-neutral-focus: var(--clb-c-neutral-focus);
   --color-info: var(--clb-c-info);
   --color-info-content: var(--clb-c-info-content);
   --color-success: var(--clb-c-success);
