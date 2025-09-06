@@ -1,15 +1,20 @@
 .tabs {
+  /* Tab labels container */
   .tab-labels {
-    @apply relative gap-4  mb-5 inline-flex cursor-pointer select-none flex-wrap items-center justify-center text-center dark:text-base-content/70;
-
-    & > .tab-label {
-      @apply text-current font-bold pb-2 transition-all duration-75 border-b border-transparent text-sm xl:text-xl;
-
-      &.tab-active {
-        @apply dark:text-primary border-b dark:border-primary;
-      }
-    }
+    @apply relative gap-4 mb-5 inline-flex cursor-pointer select-none flex-wrap items-center justify-center text-center dark:text-base-content/70;
   }
+
+  /* Individual tab label */
+  .tab-labels > .tab-label {
+    @apply text-current font-bold pb-2 transition-all duration-75 border-b border-transparent text-sm xl:text-xl;
+  }
+
+  /* Active tab */
+  .tab-labels > .tab-label.tab-active {
+    @apply dark:text-primary border-b dark:border-primary;
+  }
+
+  /* Tab content */
   .tab-content {
     @apply leading-10 text-lg min-h-screen;
   }

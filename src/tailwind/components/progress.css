@@ -57,15 +57,12 @@
   &-xs {
     @apply h-1;
   }
-
   &-sm {
     @apply h-2;
   }
-
   &-md {
     @apply h-3;
   }
-
   &-lg {
     @apply h-4;
   }

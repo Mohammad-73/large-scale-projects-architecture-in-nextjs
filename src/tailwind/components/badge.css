@@ -1,36 +1,36 @@
 .badge {
   @apply inline-flex gap-1 items-center justify-center transition duration-200 ease-in-out rounded-md font-semibold;
-  @apply leading-5 !bg-opacity-30 !border-opacity-30;
+  @apply leading-5;
   width: fit-content;
   padding-left: 0.763rem;
   padding-right: 0.763rem;
 
   &-neutral {
-    @apply dark:border-base-content dark:bg-base-content dark:text-base-content;
+    @apply dark:border-base-content/30 dark:bg-base-content/30 dark:text-base-content;
   }
   &-primary {
-    @apply dark:border-primary dark:bg-primary dark:text-primary;
+    @apply dark:border-primary/30 dark:bg-primary/30 dark:text-primary;
   }
   &-secondary {
-    @apply dark:border-secondary dark:bg-secondary dark:text-secondary;
+    @apply dark:border-secondary/30 dark:bg-secondary/30 dark:text-secondary;
   }
   &-accent {
-    @apply dark:border-accent dark:bg-accent dark:text-accent;
+    @apply dark:border-accent/30 dark:bg-accent/30 dark:text-accent;
   }
   &-info {
-    @apply dark:border-transparent dark:bg-info dark:text-info;
+    @apply dark:border-transparent dark:bg-info/30 dark:text-info;
   }
   &-success {
-    @apply dark:border-transparent dark:bg-success dark:text-success;
+    @apply dark:border-transparent dark:bg-success/30 dark:text-success;
   }
   &-warning {
-    @apply dark:border-transparent dark:bg-warning dark:text-warning;
+    @apply dark:border-transparent dark:bg-warning/30 dark:text-warning;
   }
   &-error {
-    @apply dark:border-transparent dark:bg-error dark:text-error;
+    @apply dark:border-transparent dark:bg-error/30 dark:text-error;
   }
   &-ghost {
-    @apply dark:border-white dark:bg-white dark:text-base-300;
+    @apply dark:border-white/30 dark:bg-white/30 dark:text-base-300;
   }
 
   &-xs {

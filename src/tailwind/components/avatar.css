@@ -1,5 +1,5 @@
 .avatar {
-  @apply flex justify-center items-center aspect-square overflow-hidden rounded-full ring-2 ring-transparent ring-offset-base-100 ring-offset-2 bg-base-50;
+  @apply flex justify-center items-center aspect-square overflow-hidden rounded-full ring-2 ring-transparent ring-offset-2 ring-offset-base-100 bg-base-50;
 
   & > svg {
     @apply opacity-40;

@@ -59,7 +59,7 @@ export default function RootLayout({
   return (
     <html
       dir="rtl"
-      className={`dark ${yekanbakh.variable} ${figtree.variable}`}
+      className={`${yekanbakh.variable} ${figtree.variable} dark`}
     >
       <body className="min-h-screen grid grid-rows-[80px_1fr_auto] dark:bg-base-100 dark:text-base-content">
         <NextTopLoader showSpinner={false} color="var(--color-primary)" />

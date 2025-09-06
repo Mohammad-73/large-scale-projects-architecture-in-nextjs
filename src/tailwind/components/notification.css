@@ -1,5 +1,6 @@
 .notification {
-  @apply flex gap-3 show-notification relative items-center w-full max-w-xs p-4 m-0 text-base-content bg-base-25 rounded-lg shadow;
+  @apply flex gap-3 relative items-center w-full max-w-xs p-4 m-0 text-base-content bg-base-25 rounded-lg shadow;
+
   &-icon {
     @apply inline-flex items-center justify-center flex-shrink-0 w-8 h-8 rounded-md;
   }

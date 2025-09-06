@@ -1,17 +1,23 @@
 .btn {
-  @apply no-underline inline-flex gap-2 h-12 px-7 border cursor-pointer select-none;
-  @apply items-center justify-center border-transparent transition duration-100 ease-in-out rounded-lg;
+  @apply no-underline gap-2 h-12 px-7 border inline-flex cursor-pointer select-none 
+         items-center justify-center text-center transition duration-100 ease-in-out rounded-lg;
 
-  @apply border-base-200 bg-base-200 text-base-content outline-base-content;
+  &:active:hover,
+  &:active:focus {
+    transform: scale(0.97);
+  }
+
+  /* default btn */
+  @apply dark:border-base-200 dark:bg-base-200 dark:text-base-content dark:outline-base-content;
   @media (hover: hover) {
     &:hover {
-      @apply border-base-300 bg-base-300;
+      @apply dark:border-base-300 dark:bg-base-300;
     }
   }
 
-  /* Brand colors */
+  /* brand colors */
   &-primary {
-    @apply dark:bg-primary dark:border-primary dark:text-primary-content dark:outline-primary;
+    @apply dark:border-primary dark:bg-primary dark:text-primary-content dark:outline-primary;
     @media (hover: hover) {
       &:hover {
         @apply dark:border-primary-focus dark:bg-primary-focus;
@@ -19,7 +25,7 @@
     }
   }
   &-secondary {
-    @apply dark:bg-secondary dark:border-secondary dark:text-secondary-content dark:outline-secondary;
+    @apply dark:border-secondary dark:bg-secondary dark:text-secondary-content dark:outline-secondary;
     @media (hover: hover) {
       &:hover {
         @apply dark:border-secondary-focus dark:bg-secondary-focus;
@@ -43,7 +49,7 @@
     }
   }
 
-  /* btn with state colors */
+  /* state colors */
   &-info {
     @apply dark:border-info dark:bg-info dark:text-info-content dark:outline-info;
     @media (hover: hover) {
@@ -77,17 +83,19 @@
     }
   }
 
-  /* btn variants */
+  /* ghost variant */
   &-ghost {
-    @apply border border-transparent bg-transparent text-current  outline-current;
+    @apply border border-transparent bg-transparent text-current outline-current;
     @media (hover: hover) {
       &:hover {
-        @apply border-opacity-0 dark:bg-base-content bg-opacity-20;
+        @apply border-black border-black/0 dark:bg-base-content bg-black bg-black/20;
       }
     }
   }
+
+  /* link variant */
   &-link {
-    @apply border-transparent bg-transparent dark:text-primary   outline-none h-auto px-1;
+    @apply border-transparent bg-transparent dark:text-primary outline-none h-auto px-1;
     @media (hover: hover) {
       &:hover {
         @apply border-transparent bg-transparent underline;
@@ -95,67 +103,67 @@
     }
   }
 
-  /* outline */
+  /* outline variant */
   &-outline {
-    @apply border-current dark:bg-transparent dark:text-base-content;
+    @apply border-current bg-transparent text-base-content;
     @media (hover: hover) {
       &:hover {
-        @apply dark:border-base-content dark:bg-base-content dark:text-base-100;
+        @apply border-base-content bg-base-content text-base-100;
       }
     }
     &.btn-primary {
-      @apply dark:text-primary;
+      @apply text-primary;
       @media (hover: hover) {
         &:hover {
-          @apply dark:border-primary-focus dark:bg-primary-focus dark:text-primary-content;
+          @apply border-primary-focus bg-primary-focus text-primary-content;
         }
       }
     }
     &.btn-secondary {
-      @apply dark:text-secondary;
+      @apply text-secondary;
       @media (hover: hover) {
         &:hover {
-          @apply dark:border-secondary-focus dark:bg-secondary-focus dark:text-secondary-content;
+          @apply border-secondary-focus bg-secondary-focus text-secondary-content;
         }
       }
     }
     &.btn-accent {
-      @apply dark:text-accent;
+      @apply text-accent;
       @media (hover: hover) {
         &:hover {
-          @apply dark:border-accent-focus dark:bg-accent-focus dark:text-accent-content;
+          @apply border-accent-focus bg-accent-focus text-accent-content;
         }
       }
     }
     &.btn-success {
-      @apply dark:text-success;
+      @apply text-success;
       @media (hover: hover) {
         &:hover {
-          @apply dark:border-success dark:bg-success dark:text-base-100;
+          @apply border-success bg-success text-base-100;
         }
       }
     }
     &.btn-info {
-      @apply dark:text-info;
+      @apply text-info;
       @media (hover: hover) {
         &:hover {
-          @apply dark:border-info dark:bg-info dark:text-base-100;
+          @apply border-info bg-info text-base-100;
         }
       }
     }
     &.btn-warning {
-      @apply dark:text-warning;
+      @apply text-warning;
       @media (hover: hover) {
         &:hover {
-          @apply dark:border-warning dark:bg-warning dark:text-base-100;
+          @apply border-warning bg-warning text-base-100;
         }
       }
     }
     &.btn-error {
-      @apply dark:text-error;
+      @apply text-error;
       @media (hover: hover) {
         &:hover {
-          @apply dark:border-error dark:bg-error dark:text-base-100;
+          @apply border-error bg-error text-base-100;
         }
       }
     }
@@ -164,31 +172,29 @@
   /* disabled */
   &[disabled],
   &:disabled {
-    @apply pointer-events-none border-opacity-0 dark:bg-neutral dark:bg-opacity-20 dark:text-base-content dark:text-opacity-20;
+    @apply pointer-events-none border-black border-black/0 dark:bg-neutral bg-black bg-black/20 
+           dark:text-base-content text-black text-black/20;
   }
   @media (hover: hover) {
     &[disabled]:hover,
     &:disabled:hover {
-      @apply border-opacity-0 dark:bg-neutral dark:bg-opacity-20 dark:text-base-content dark:text-opacity-20;
+      @apply border-black border-black/0 dark:bg-neutral bg-black bg-black/20 
+             dark:text-base-content text-black text-black/20;
     }
   }
 
-  /* size and shape */
+  /* sizes */
   &-xs {
-    @apply h-6 px-2;
-    font-size: 0.75rem;
+    @apply h-6 px-2 text-xs;
   }
   &-sm {
-    @apply h-8 px-3;
-    font-size: 0.875rem;
+    @apply h-8 px-3 text-sm;
   }
   &-md {
-    @apply h-12 px-4;
-    font-size: 0.875rem;
+    @apply h-12 px-4 text-sm;
   }
   &-lg {
-    @apply h-16 px-6;
-    font-size: 1.125rem;
+    @apply h-16 px-6 text-lg;
   }
   &-wide {
     @apply w-64 flex-nowrap;
@@ -197,12 +203,14 @@
     @apply w-full;
   }
   &-square {
-    @apply h-12 w-12 p-0;
     &:where(.btn-xs) {
       @apply h-6 w-6 p-0;
     }
     &:where(.btn-sm) {
       @apply h-8 w-8 p-0;
+    }
+    &:where(.btn-md) {
+      @apply h-12 w-12 p-0;
     }
     &:where(.btn-lg) {
       @apply h-16 w-16 p-0;
