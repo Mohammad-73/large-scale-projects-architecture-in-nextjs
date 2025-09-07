@@ -21,6 +21,7 @@ export const CourseCardList: React.FC<
   CourseCardListProps
 > = async ({}: CourseCardListProps) => {
   const newestCoursesData = await getNewestCourses(4);
+
   return (
     <div className="flex flex-wrap justify-center xl:justify-start gap-6 mt-10">
       {newestCoursesData.map((course) => (
