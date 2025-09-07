@@ -13,7 +13,7 @@ export type BlogPostCardProps = BlogPostSummary & {};
 
 export const BlogPostCard: React.FC<BlogPostCardProps> = ({
   title,
-  thumbnailUrl,
+  coverImage,
   studyTime,
   author,
   postDate,
@@ -21,17 +21,18 @@ export const BlogPostCard: React.FC<BlogPostCardProps> = ({
   numberOfComments,
   isNew,
   slug,
+  summary,
 }) => {
   return (
     <div className="card">
       <figure>
-        <Image src={thumbnailUrl} alt={title} width={550} height={327} />
+        <Image src={coverImage} alt={title} width={550} height={327} />
       </figure>
       <div className="card-body">
         <Link href={`/blog/${slug}`} className="card-title mb-auto">
           {title}
         </Link>
-
+        <p>{summary}</p>
         <div className="flex items-center justify-between mt-2">
           <Badge variant="info" size="tiny">
             <IconUserProfile width={16} height={16} />
