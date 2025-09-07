@@ -19,5 +19,6 @@ export const Badge: React.FC<BadgeProps> = ({
     [`badge-${variant}`]: variant,
     [`${sizeClasses[size]}`]: size,
   });
+
   return <span className={classes}>{children}</span>;
 };
