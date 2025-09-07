@@ -16,6 +16,11 @@ const nextConfig: NextConfig = {
         protocol: "https",
         hostname: "classbon-blog.s3.ir-thr-at1.arvanstorage.com",
       },
+      {
+        protocol: "https",
+        hostname: "minio-classbon.darkube.app",
+        pathname: "/courses-images/**",
+      },
     ],
   },
 };
