@@ -42,7 +42,7 @@ export default async function Home() {
           <p> برای به‌روز موندن، یاد گرفتن نکته‌های تازه ضروری‌ه!</p>
         </div>
         <Suspense fallback={<CardPlaceholder count={4} className="mt-5" />}>
-          <CourseCardList courses={[]} />
+          <CourseCardList />
         </Suspense>
       </section>
       <section className="px-2 my-40">

@@ -3,7 +3,7 @@ import { CourseCard } from "./course-card";
 import { API_URL } from "@/configs/global";
 
 type CourseCardListProps = {
-  courses: CourseSummary[];
+  // courses: CourseSummary[];
 };
 
 async function getNewestCourses(count: number): Promise<CourseSummary[]> {
@@ -17,9 +17,9 @@ async function getNewestCourses(count: number): Promise<CourseSummary[]> {
   return res.json();
 }
 
-export const CourseCardList: React.FC<CourseCardListProps> = async ({
-  courses,
-}: CourseCardListProps) => {
+export const CourseCardList: React.FC<
+  CourseCardListProps
+> = async ({}: CourseCardListProps) => {
   const newestCoursesData = await getNewestCourses(4);
   return (
     <div className="flex flex-wrap justify-center xl:justify-start gap-6 mt-10">
