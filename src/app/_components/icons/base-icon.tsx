@@ -1,12 +1,12 @@
-import { SvgIcon } from "./icon.types";
+import { SvgIconType } from "./icon.types";
 
-export const BaseIcon: React.FC<SvgIcon> = ({
+export const BaseIcon: React.FC<SvgIconType> = ({
   color = "currentColor",
   width = 24,
   height = 24,
-  children,
-  viewBox = "0 0 24 24",
   strokeWidth = "1.5",
+  viewBox = "0 0 24 24",
+  children,
   ...rest
 }) => {
   return (

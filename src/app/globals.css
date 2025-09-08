@@ -114,6 +114,34 @@
   }
 }
 
+.animated-icon {
+  & > * {
+    @apply transition-all;
+  }
+  &:hover {
+    @apply text-white;
+    & > * {
+      @apply -translate-x-2;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.8s ease forwards;
+}
+
 /* @import "tailwindcss/base.css";
 @import "tailwindcss/components.css";
 
@@ -147,30 +175,4 @@
   @apply bg-gradient-to-r from-gradient-first to-gradient-second text-transparent bg-clip-text;
 }
 
-.animated-icon {
-  & > * {
-    @apply transition-all;
-  }
-  &:hover {
-    @apply text-white;
-    & > * {
-      @apply -translate-x-2;
-    }
-  }
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translateX(20px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-.fade-in {
-  animation: fadeIn 0.8s ease forwards;
-} */
+ */
