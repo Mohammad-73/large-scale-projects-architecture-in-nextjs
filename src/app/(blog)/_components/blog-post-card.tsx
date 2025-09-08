@@ -32,7 +32,7 @@ export const BlogPostCard: React.FC<BlogPostCardProps> = ({
         <Link href={`/blog/${slug}`} className="card-title mb-auto">
           {title}
         </Link>
-        <p>{summary}</p>
+        <p className="truncate">{summary}</p>
         <div className="flex items-center justify-between mt-2">
           <Badge variant="info" size="tiny">
             <IconUserProfile width={16} height={16} />

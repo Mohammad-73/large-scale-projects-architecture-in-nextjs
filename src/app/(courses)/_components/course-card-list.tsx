@@ -6,6 +6,7 @@ type CourseCardListProps = {
   // courses: CourseSummary[];
 };
 
+// This isn't good place for this function. It's better to move it to another file for logics
 async function getNewestCourses(count: number): Promise<CourseSummary[]> {
   // await new Promise((resolve) => setTimeout(resolve, 3000));
   const res = await fetch(`${API_URL}/courses/newest/${count}`, {
