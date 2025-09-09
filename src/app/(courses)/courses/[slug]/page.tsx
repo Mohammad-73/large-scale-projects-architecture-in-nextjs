@@ -13,6 +13,7 @@ import { CourseCurriculum } from "./_components/curriculum";
 import { VideoPlayer } from "@/app/_components/video-player";
 import Image from "next/image";
 
+// This function should be integrated with a dynamic route segment
 export async function generateStaticParams() {
   const slugs = await fetch(`${API_URL}/courses/slugs`).then((res) =>
     res.json()

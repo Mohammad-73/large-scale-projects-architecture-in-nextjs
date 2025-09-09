@@ -22,6 +22,7 @@ export const Avatar: React.FC<AvatarProps> = ({
     [`avatar-${variant}`]: variant,
     [`${sizeClasses[size]}`]: size,
   });
+
   return (
     <div
       className={classes}
