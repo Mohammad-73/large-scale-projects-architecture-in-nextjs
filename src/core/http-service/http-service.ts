@@ -1,13 +1,5 @@
 import { API_URL } from "@/configs/global";
-import {
-  BadRequestError,
-  NetworkError,
-  NotFoundError,
-  UnhandledError,
-  UnauthorizedError,
-  ValidationError,
-  ApiError,
-} from "@/types/http-errors.interface";
+import { ApiError } from "@/types/http-errors.interface";
 import axios, {
   AxiosRequestConfig,
   AxiosRequestHeaders,
