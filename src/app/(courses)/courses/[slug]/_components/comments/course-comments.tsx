@@ -16,7 +16,6 @@ const CourseComments = () => {
   const {
     data: comments,
     error,
-    isFetchingNextPage,
     isFetching,
     fetchNextPage,
     hasNextPage,

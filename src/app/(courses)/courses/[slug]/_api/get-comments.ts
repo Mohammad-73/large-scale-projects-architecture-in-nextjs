@@ -1,6 +1,6 @@
 import { readData } from "@/core/http-service/http-service";
 import { CourseCommentList } from "../_types/course-comment.interface";
-import { useInfiniteQuery, useQuery } from "@tanstack/react-query";
+import { useInfiniteQuery } from "@tanstack/react-query";
 
 type GetCommentsOptions = {
   params: {
