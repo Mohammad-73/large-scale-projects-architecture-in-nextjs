@@ -1,5 +1,3 @@
-import { Progress } from "@/app/_components/progress";
-import { Rating } from "@/app/_components/rating";
 import { API_URL } from "@/configs/global";
 import { CourseDetails } from "@/types/course-details.interface";
 import { CourseAside } from "./_components/course-aside/course-aside";
