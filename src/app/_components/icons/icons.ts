@@ -21,6 +21,7 @@ export { default as IconInfo } from './src/info';
 export { default as IconLeft } from './src/left';
 export { default as IconLevel } from './src/level';
 export { default as IconLogout } from './src/logout';
+export { default as IconPause } from './src/pause';
 export { default as IconPlay } from './src/play';
 export { default as IconQuiz } from './src/quiz';
 export { default as IconRecord } from './src/record';

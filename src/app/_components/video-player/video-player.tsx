@@ -7,6 +7,7 @@ import { VideoProps } from "./video-player.types";
 import { Button } from "../button";
 import { Progress } from "../progress";
 import { secondsToHHMMSS } from "@/utils/time";
+import { IconPause, IconPlay } from "../icons/icons";
 
 export const VideoPlayer: React.FC<VideoProps> = ({ src, poster = "" }) => {
   const {
@@ -54,7 +55,23 @@ export const VideoPlayer: React.FC<VideoProps> = ({ src, poster = "" }) => {
           className="font-semibold tracking-widest w-32"
           onClick={!isPlaying ? play : pause}
         >
-          {isVideoWaited ? "loading..." : !isPlaying ? "play" : "pause"}
+          {isVideoWaited ? (
+            "loading..."
+          ) : !isPlaying ? (
+            <>
+              <span className="hidden md:visible">play</span>
+              <span className="visible md:hidden">
+                <IconPlay />
+              </span>
+            </>
+          ) : (
+            <>
+              <span>pause</span>
+              <span>
+                <IconPause />
+              </span>
+            </>
+          )}
         </Button>
 
         <Progress value={progress} variant="primary" />

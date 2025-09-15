@@ -1,6 +1,6 @@
 @import "tailwindcss";
 
-@import "../tailwind/components.css";
+@import "../tailwind/components.css" layer(components);
 
 @custom-variant dark (&:where(.dark, .dark *));
 
