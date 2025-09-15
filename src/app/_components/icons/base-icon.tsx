@@ -1,4 +1,4 @@
-import { SvgIconType } from "./icon.types";
+import { SvgIcon as SvgIconType } from "./icon.types";
 
 export const BaseIcon: React.FC<SvgIconType> = ({
   color = "currentColor",

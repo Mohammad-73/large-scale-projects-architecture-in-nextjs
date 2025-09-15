@@ -7,4 +7,4 @@ export default function SvgIcon(props:SvgIconType){
             <path d="M21 7.5L12 16.5L3 7.5"/>
         </BaseIcon>
     )
-}
+} 

@@ -7,4 +7,4 @@ export default function SvgIcon(props:SvgIconType){
             <circle cx="3.5779" cy="3.2879" r="2.7487"/>
         </BaseIcon>
     )
-}
+} 

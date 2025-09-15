@@ -52,22 +52,22 @@ export const VideoPlayer: React.FC<VideoProps> = ({ src, poster = "" }) => {
         <Button
           size="tiny"
           variant={isPlaying ? undefined : "primary"}
-          className="font-semibold tracking-widest w-32"
+          className="font-semibold tracking-widest "
           onClick={!isPlaying ? play : pause}
         >
           {isVideoWaited ? (
             "loading..."
           ) : !isPlaying ? (
             <>
-              <span className="hidden md:visible">play</span>
+              <span className="hidden md:flex">play</span>
               <span className="visible md:hidden">
                 <IconPlay />
               </span>
             </>
           ) : (
             <>
-              <span>pause</span>
-              <span>
+              <span className="hidden md:flex">pause</span>
+              <span className="visible md:hidden">
                 <IconPause />
               </span>
             </>
