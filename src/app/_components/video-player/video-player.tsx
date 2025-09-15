@@ -59,14 +59,14 @@ export const VideoPlayer: React.FC<VideoProps> = ({ src, poster = "" }) => {
             "loading..."
           ) : !isPlaying ? (
             <>
-              <span className="hidden md:flex">play</span>
+              <span className="hidden md:flex px-2">play</span>
               <span className="visible md:hidden">
                 <IconPlay />
               </span>
             </>
           ) : (
             <>
-              <span className="hidden md:flex">pause</span>
+              <span className="hidden md:flex px-2">pause</span>
               <span className="visible md:hidden">
                 <IconPause />
               </span>
