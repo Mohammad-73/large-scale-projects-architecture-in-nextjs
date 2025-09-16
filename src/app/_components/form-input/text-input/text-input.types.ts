@@ -3,7 +3,6 @@ import {
   FieldError,
   FieldValues,
   Path,
-  RegisterOptions,
   UseFormRegister,
 } from "react-hook-form";
 import { TextboxProps } from "../../textbox/textbox.types";
