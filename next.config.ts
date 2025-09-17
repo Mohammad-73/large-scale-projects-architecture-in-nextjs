@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  reactStrictMode: false,
   images: {
     remotePatterns: [
       {
@@ -11,7 +11,6 @@ const nextConfig: NextConfig = {
       {
         protocol: "https",
         hostname: "minio-classbon.darkube.app",
-        // pathname: "/courses-images/**",
       },
     ],
   },
