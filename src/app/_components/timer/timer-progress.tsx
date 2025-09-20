@@ -1,5 +1,6 @@
 "use client";
-import React, { ReactNode, useEffect, useState } from "react";
+
+import React, { useEffect, useState } from "react";
 import classNames from "classnames";
 import { TimerProgressProps } from "./timer.types";
 import { Size } from "../types/size.type";
