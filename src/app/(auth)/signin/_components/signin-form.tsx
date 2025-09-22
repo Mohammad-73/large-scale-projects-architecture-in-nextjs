@@ -6,7 +6,7 @@ import { useNotificationStore } from "@/store/notification.store";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 // import { useSignIn } from "../_api/signin";
-import { signInAction } from "@/actions/auth";
+import { signInAction } from "@/_actions/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useActionState, useEffect, useTransition } from "react";
 import { signInSchema } from "../_types/signin.schema";

@@ -14,7 +14,7 @@ import {
   useTransition,
 } from "react";
 // import { useSendAuthCode } from "../_api/send-auth-code";
-import { sendAuthCode, verify } from "@/actions/auth";
+import { sendAuthCode, verify } from "@/_actions/auth";
 import { useNotificationStore } from "@/store/notification.store";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useForm } from "react-hook-form";

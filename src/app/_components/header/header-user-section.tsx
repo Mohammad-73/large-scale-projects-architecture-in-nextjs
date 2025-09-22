@@ -1,6 +1,6 @@
 "use client";
 
-import { logout } from "@/actions/auth";
+import { logout } from "@/_actions/auth";
 import { getSession, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useActionState, useEffect } from "react";
